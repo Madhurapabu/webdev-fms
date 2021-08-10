@@ -8,9 +8,25 @@ router.route('/').get((req, res) => {
 });
 
 router.route('/add').post((req, res) => {
-  const name = req.body.name;
+  const firstname = req.body.firstname;
+  const lastname = req.body.lastname;
+  const gender = req.body.gender;
+  const dob = Date.parse(req.body.dob);
+  const address = req.body.address;
+  const nic =  req.body.nic;
+  const contactnumber = Number(req.body.contactnumber);
+  const username = req.body.username;
 
-  const newPumper = new Pumper({name});
+  const newPumper = new Pumper({
+    firstname,
+    lastname,
+    gender,
+    dob,
+    address,
+    nic,
+    contactnumber,
+    username,
+  });
 
   newPumper.save()
     .then(() => res.json('User added!'))
