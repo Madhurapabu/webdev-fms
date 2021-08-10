@@ -3,10 +3,9 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const pumpSchema = new Schema({
-  username: { type: String, required: true },
-  description: { type: String, required: true },
-  duration: { type: Number, required: true },
-  date: { type: Date, required: true },
+  fueltype: { type: String, required: true },
+  pumpname: { type: String, required: true, unique: true },
+  initialreading: { type: Number, required: true },
 }, {
   timestamps: true,
 });
