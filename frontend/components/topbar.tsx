@@ -68,7 +68,7 @@ const Topbar: React.FC = ({}) => {
               </Button>
             </NextLink>
 
-            <NextLink href="" passHref>
+            <NextLink href="/prices" passHref>
               <Button
                 as="a"
                 variant="ghost"
@@ -163,7 +163,7 @@ const Topbar: React.FC = ({}) => {
               </Button>
             </NextLink>
 
-            <NextLink href="/" passHref>
+            <NextLink href="/prices" passHref>
               <Button
                 as="a"
                 variant="ghost"
