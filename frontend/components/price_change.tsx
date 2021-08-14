@@ -146,7 +146,7 @@ const TableRow: React.FC = () => {
   );
 };
 
-const Data: React.FC = ({}) => {
+const Pricedisplay: React.FC = ({}) => {
   return (
     <div>
       <Table size="md">
@@ -165,4 +165,4 @@ const Data: React.FC = ({}) => {
   );
 };
 
-export default Data;
+export default Pricedisplay;
