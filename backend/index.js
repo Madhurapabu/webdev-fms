@@ -2,7 +2,10 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 
+
+
 require('dotenv').config();
+
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -20,9 +23,11 @@ connection.once('open', () => {
 
 const pumpRouter = require('./routes/pump');
 const pumpersRouter = require('./routes/pumpers');
+const pricesRouter = require('./routes/prices')
 
 app.use('/pump', pumpRouter);
 app.use('/pumpers', pumpersRouter);
+app.use('/prices', pricesRouter )
 
 
 app.listen(port, () => {
