@@ -28,6 +28,8 @@ interface addPumpers {
   nic: string;
   contactnumber: number;
   username: string;
+  totalSale: string;
+  prevSale: string;
 }
 
 const AddPumpers: React.FC = ({}) => {
@@ -41,6 +43,10 @@ const AddPumpers: React.FC = ({}) => {
   
   const onSubmit = (values: addPumpers) => {
     console.log(values);
+
+    values.totalSale = "0"
+    values.prevSale = "0"
+    
     fetch("http://localhost:5000/pumpers/add", {
       method: "POST",
       headers: {
@@ -48,6 +54,7 @@ const AddPumpers: React.FC = ({}) => {
       },
       body: JSON.stringify(values),
     }).then((value) => {
+      console.log(value.ok)
       if (value.ok == true) {
         toast({
           id,
