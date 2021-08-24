@@ -131,7 +131,7 @@ const TableRow: React.FC = () => {
         return (
           <Tr key={i["id"]}>
             <Td>{i.fueltype}</Td>
-            <Td pl={10}>{i.price}.00</Td>
+            <Td pl={10} isNumeric>{i.price}.00</Td>
             <Td isNumeric>
               {/* Price Change form */}
               <ChangePrice
@@ -153,12 +153,12 @@ const Pricedisplay: React.FC = ({}) => {
         <Thead align="right">
           <Tr>
             <Th fontSize="md">Fuel Type</Th>
-            <Th fontSize="md">Price ( LKR) </Th>
+            <Th fontSize="md" isNumeric>Price ( LKR) </Th>
             <Th fontSize="md"> </Th>
           </Tr>
         </Thead>
         <Tbody>
-          <TableRow />
+          <TableRow></TableRow>
         </Tbody>
       </Table>
     </div>
