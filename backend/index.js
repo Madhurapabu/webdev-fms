@@ -24,10 +24,15 @@ connection.once('open', () => {
 const pumpRouter = require('./routes/pump');
 const pumpersRouter = require('./routes/pumpers');
 const pricesRouter = require('./routes/prices')
+const salesRouter = require('./routes/sales');
+const pumperrecordsRouter = require('./routes/pumpers_records');
+
 
 app.use('/pump', pumpRouter);
 app.use('/pumpers', pumpersRouter);
-app.use('/prices', pricesRouter )
+app.use('/prices', pricesRouter );
+app.use('/sales', salesRouter);
+app.use('/pumperrecords', pumperrecordsRouter);
 
 
 app.listen(port, () => {
