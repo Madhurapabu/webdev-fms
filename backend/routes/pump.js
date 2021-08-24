@@ -11,11 +11,13 @@ router.route('/add').post((req, res) => {
   const fueltype = req.body.fueltype;
   const pumpname = req.body.pumpname;
   const initialreading = Number(req.body.initialreading);
+  const ongoingreading = Number(req.body.ongoingreading);
 
   const newPumps = new Pumps({
     fueltype,
     pumpname,
     initialreading,
+    ongoingreading,
   });
 
   newPumps.save()
@@ -29,6 +31,12 @@ router.route('/:id').get((req, res) => {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
+router.route('/type/:id').get((req, res) => {
+  Pumps.find( {fueltype:req.params.id})
+    .then(pump => res.json(pump))
+    .catch(err => res.status(400).json('Error: ' + err));
+});
+
 router.route('/:id').delete((req, res) => {
   Pumps.findByIdAndDelete(req.params.id)
     .then(() => res.json('Exercise deleted.'))
@@ -38,10 +46,7 @@ router.route('/:id').delete((req, res) => {
 router.route('/update/:id').post((req, res) => {
   Pumps.findById(req.params.id)
     .then(pump => {
-      pump.username = req.body.username;
-      pump.description = req.body.description;
-      pump.duration = Number(req.body.duration);
-      pump.date = Date.parse(req.body.date);
+      pump.ongoingreading = req.body.ongoingreading;
 
       pump.save()
         .then(() => res.json('Exercise updated!'))
