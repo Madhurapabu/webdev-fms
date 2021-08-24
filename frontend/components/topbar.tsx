@@ -23,13 +23,13 @@ const Topbar: React.FC = ({}) => {
           {/* Desktop */}
 
           <Flex display={["none", "none", "flex", "flex"]}>
-            <NextLink href="/" passHref>
+            <NextLink href="/" >
               <Button as="a" variant="ghost" aria-label="Home" my={2} w="100%">
                 Home
               </Button>
             </NextLink>
 
-            <NextLink href="" passHref>
+            <NextLink href="/calculation" >
               <Button
                 as="a"
                 variant="ghost"
@@ -42,7 +42,7 @@ const Topbar: React.FC = ({}) => {
               </Button>
             </NextLink>
 
-            <NextLink href="/addpumpers" passHref>
+            <NextLink href="/addpumpers">
               <Button
                 as="a"
                 variant="ghost"
@@ -55,7 +55,7 @@ const Topbar: React.FC = ({}) => {
               </Button>
             </NextLink>
 
-            <NextLink href="/addpump" passHref>
+            <NextLink href="/addpump">
               <Button
                 as="a"
                 variant="ghost"
@@ -68,7 +68,7 @@ const Topbar: React.FC = ({}) => {
               </Button>
             </NextLink>
 
-            <NextLink href="/prices" passHref>
+            <NextLink href="/prices">
               <Button
                 as="a"
                 variant="ghost"
@@ -127,19 +127,19 @@ const Topbar: React.FC = ({}) => {
           </Flex>
 
           <Flex flexDir="column" align="center">
-            <NextLink href="/" passHref>
+            <NextLink href="/">
               <Button as="a" variant="ghost" aria-label="Home" my={5} w="100%">
                 Home
               </Button>
             </NextLink>
 
-            <NextLink href="/" passHref>
+            <NextLink href="/calculation" >
               <Button as="a" variant="ghost" aria-label="About" my={5} w="100%">
                 Calculations
               </Button>
             </NextLink>
 
-            <NextLink href="addpumpers" passHref>
+            <NextLink href="addpumpers">
               <Button
                 as="a"
                 variant="ghost"
@@ -151,7 +151,7 @@ const Topbar: React.FC = ({}) => {
               </Button>
             </NextLink>
 
-            <NextLink href="addpump" passHref>
+            <NextLink href="addpump">
               <Button
                 as="a"
                 variant="ghost"
@@ -163,7 +163,7 @@ const Topbar: React.FC = ({}) => {
               </Button>
             </NextLink>
 
-            <NextLink href="/prices" passHref>
+            <NextLink href="/prices">
               <Button
                 as="a"
                 variant="ghost"
