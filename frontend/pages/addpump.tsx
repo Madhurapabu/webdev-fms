@@ -19,7 +19,8 @@ import { useToast } from "@chakra-ui/react";
 interface addPump {
   fueltype: string;
   pumpname: string;
-  initialreading: Number;
+  initialreading: string;
+  ongoingreading : Number;
 }
 
 const AddPump: React.FC = ({}) => {
@@ -28,6 +29,7 @@ const AddPump: React.FC = ({}) => {
   const id = "test-tost";
 
   const onSubmit = (values: addPump) => {
+    values.ongoingreading = 0
     console.log(values);
     fetch("http://localhost:5000/pump/add", {
       method: "POST",
@@ -110,7 +112,7 @@ const AddPump: React.FC = ({}) => {
                     {" "}
                     Initial Reading{" "}
                   </FormLabel>
-                  <Input {...register("initialreading")} type="number" />
+                  <Input  {...register("initialreading", { pattern: /^[0-9.]+$/i })} />
                 </FormControl>
               </SimpleGrid>
               <Center marginTop="14">
