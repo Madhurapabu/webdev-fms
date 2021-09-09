@@ -57,6 +57,14 @@ const Addpay: React.FC<{
         "Content-Type": "application/json;charset=utf-8",
       },
       body: JSON.stringify(values),
+    }).then((value)=>{
+      if(value.ok == true){
+        const reload = async() =>{
+          await new Promise(resolve => setTimeout(resolve, 500));
+          location.reload();
+        }          
+        reload();
+      }
     })
   };
 
@@ -225,7 +233,7 @@ const PumperSale: React.FC<{ salesDay: string }> = ({ salesDay }) => {
             
             <Th fontSize="md" textColor="#00008b" fontWeight="bold" isNumeric>
               {" "}
-              Paied Amount (LKR){" "}
+              Paid Amount (LKR){" "}
             </Th>
           </Tr>
         </Thead>

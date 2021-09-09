@@ -17,6 +17,7 @@ import {
   useToast,
 } from "@chakra-ui/react";
 import { useForm } from "react-hook-form";
+import Router from 'next/router';
 
 interface calculationdata {
   pumpname: string;
@@ -147,13 +148,19 @@ const Addvalues: React.FC<{
 
             /* Data submiting is success */
             if (value.ok == true) {
-              toast({
-                title: "Calculated is Succesfull. Please refresh the page",
-                status: "success",
-                isClosable: true,
-                duration: 2000,
-                position: "top-right",
-              });
+
+             const reload = async() =>{
+                toast({
+                  title: "Calculated is Succesfull.",
+                  status: "success",
+                  isClosable: true, 
+                  duration: 1500,
+                  position: "top-right",
+                });
+                await new Promise(resolve => setTimeout(resolve, 2000));
+                location.reload();
+              }          
+              reload();
             } else {
               toast({
                 title: "Error. Please check fields again",
