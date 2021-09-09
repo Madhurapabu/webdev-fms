@@ -17,7 +17,7 @@ router.route('/add').post((req, res) => {
   const assign_pumpman = req.body.assign_pumpman;
   const payablevalue = req.body.payablevalue;
   const dateOfSales = Date.parse(req.body.dateOfSales);
-  
+  const keyValue = req.body.keyValue;
   const newSale = new Sale({
     pumpname,
     fueltype,
@@ -27,6 +27,7 @@ router.route('/add').post((req, res) => {
     assign_pumpman,
     payablevalue,
     dateOfSales,
+    keyValue,
   });
 
   newSale.save()

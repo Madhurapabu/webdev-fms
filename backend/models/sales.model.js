@@ -12,6 +12,7 @@ const saleSchema = new Schema({
     assign_pumpman: { type: String, required: true}, 
     payablevalue : {type: String, required: true},
     dateOfSales: { type: Date, required: true},
+    keyValue:{type:String, required:true, unique: true}
 }, {
     timestamps: true,
 });
