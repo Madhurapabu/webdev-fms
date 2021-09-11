@@ -50,6 +50,12 @@ router.route('/update/:id').post((req, res) => {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
+router.route('/date/:id').get((req, res) => {
+  PumperRecord.find( {saleDate:req.params.id})
+    .then(pumperRecord => res.json(pumperRecord))
+    .catch(err => res.status(400).json('Error: ' + err));
+});
+
 
 
 module.exports = router;
