@@ -36,7 +36,7 @@ const CalTotal: React.FC<{ sDay: string }> = ({ sDay }) => {
       });
   }, [sDay]);
   DaySale.map((i) => {
-    totalIncome = totalIncome + Number(i.payablevalue);
+    totalIncome = totalIncome + Number(i.sales);
   });
   return <>{totalIncome.toFixed(2)}</>;
 };
@@ -138,7 +138,7 @@ const AccordionStyle: React.FC = ({}) => {
   return (
     <>
       {/* Sales Preview of Today */}
-      <Accordion defaultIndex={[0]} allowToggle>
+      <Accordion  allowToggle>
         <AccordionItem>
           <h2>
             <AccordionButton>
