@@ -29,6 +29,8 @@ interface calculationdata {
   assign_pumpman: string;
   payablevalue: string;
   dateOfSales: Date;
+  keyValue: String;
+  credited: String;
 }
 
 const CalcDate: React.FC<{ ptype: string }> = ({ ptype }) => {
@@ -75,6 +77,7 @@ const Addvalues: React.FC<{
   pname: string;
   perreading: any;
 }> = ({ id, type, pname, perreading }) => {
+
   const cancelRef = useRef(null);
   const [isOpen, setIsOpen] = React.useState(false);
   const onClose = () => setIsOpen(false);
@@ -84,42 +87,66 @@ const Addvalues: React.FC<{
   const onSubmit = (values: calculationdata) => {
     values.pumpname = pname;
     values.fueltype = type;
+    values.keyValue = values.dateOfSales+ values.pumpname
     values.sales_liters = (
       Number(values.ongoingreading) - perreading
     ).toString();
-
+  
     if (type == "Diesel") {
+
       values.sales = (Number(values.sales_liters) * dprice).toString();
       values.payablevalue = (
         (Number(values.sales_liters) - Number(values.creditedsale)) *
         dprice
       ).toString();
-    } else if (type == "Petrol") {
+      values.credited = (Number(values.creditedsale) * dprice).toString();
+
+    } 
+    
+    else if (type == "Petrol") {
+
       values.sales = (Number(values.sales_liters) * pprice).toString();
       values.payablevalue = (
         (Number(values.sales_liters) - Number(values.creditedsale)) *
         pprice
       ).toString();
-    } else if (type == "Super Diesel") {
+      values.credited = (Number(values.creditedsale) * pprice).toString();
+
+    } 
+    
+    else if (type == "Super Diesel") {
+
       values.sales = (Number(values.sales_liters) * sdprice).toString();
       values.payablevalue = (
         (Number(values.sales_liters) - Number(values.creditedsale)) *
         sdprice
       ).toString();
-    } else if (type == "Super Petrol") {
+      values.credited = (Number(values.creditedsale) * sdprice).toString();
+
+    } 
+    
+    else if (type == "Super Petrol") {
+
       values.sales = (Number(values.sales_liters) * spprice).toString();
       values.payablevalue = (
         (Number(values.sales_liters) - Number(values.creditedsale)) *
         spprice
       ).toString();
-    } else {
+      values.credited = (Number(values.creditedsale) * spprice).toString();
+
+    } 
+    
+    else {
+
       values.sales = (Number(values.sales_liters) * kprice).toString();
       values.payablevalue = (
         (Number(values.sales_liters) - Number(values.creditedsale)) *
         kprice
       ).toString();
+      values.credited = (Number(values.creditedsale) * kprice).toString();
     }
 
+    console.log(values)
 
     if (Number(values.sales) >= 0 && Number(values.sales_liters) >= 0) {
       {
@@ -157,7 +184,7 @@ const Addvalues: React.FC<{
                   duration: 1500,
                   position: "top-right",
                 });
-                await new Promise(resolve => setTimeout(resolve, 2000));
+                await new Promise(resolve => setTimeout(resolve, 1000));
                 location.reload();
               }          
               reload();
@@ -174,6 +201,7 @@ const Addvalues: React.FC<{
         }
         
       });
+
     } else {
       /* action that User input wrong data */
       toast({
