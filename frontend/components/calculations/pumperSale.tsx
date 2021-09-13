@@ -60,7 +60,7 @@ const Addpay: React.FC<{
     }).then((value)=>{
       if(value.ok == true){
         const reload = async() =>{
-          await new Promise(resolve => setTimeout(resolve, 500));
+          await new Promise(resolve => setTimeout(resolve, 100));
           location.reload();
         }          
         reload();
@@ -118,10 +118,6 @@ const Addpay: React.FC<{
 
 {/* Calculated Data Preview according to Pumpers */}
 const DataPrevRow: React.FC<{ salesDay: string }> = ({ salesDay }) => {
-  const postValue = {
-    dateOfSales: salesDay.slice(0, 10),
-    assign_pumpman: String,
-  };
 
   {/* Declare Objects and Arrays for calculations */}
   var CalTotal: { [k: string]: any } = {};
