@@ -1,34 +1,39 @@
-import { Button, Flex, IconButton, Link } from "@chakra-ui/react";
-import { useState } from "react";
-import NextLink from "next/link";
+import {Flex, Container } from "@chakra-ui/react";
 import Head from "next/head";
-import Image from "next/image";
 import BarChart from "../components/charts/Sales_type";
 import LineChart from "../components/charts/cashflow";
-
-
+import Credit from "../components/dashboard/credit";
 export default function Home() {
-  
   return (
     <>
       <Head>
         <title>Home Page of fms</title>
         <meta name="description" content="FMS" />
       </Head>
-    <Flex dir="row">
-    <Flex w="full" h="100vh">
-     
-      <BarChart/>
-    
-    </Flex>
+      <Container overflowY="auto" maxW="8XL" bg="gray.100">
 
-    <Flex w="full" h="100vh">
-     
-     <LineChart/>
-   
-    </Flex>
+        <Flex direction={{ base: "column", md: "row" }} w="100%" align="center">
+            
+            <Flex w={{base:"100%", md:"50%"}} >
+            <Credit></Credit>
+            </Flex>
 
-    </Flex>
+            <Flex w={{base:"100%", md:"50%"}} align="center" >
+              
+            </Flex>
+        </Flex>
+
+        <Flex direction={{ base: "column", md: "row" }} w="100%" align="center" mb={5}>
+          
+          <Flex w={{base:"100%", md:"50%"}} mr={5} >
+            <BarChart />
+          </Flex>
+
+          <Flex w={{base:"100%", md:"50%"}} align="center" >
+            <LineChart />
+          </Flex>
+        </Flex>
+      </Container>
     </>
   );
 }
