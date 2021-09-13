@@ -18,6 +18,7 @@ router.route('/add').post((req, res) => {
   const payablevalue = req.body.payablevalue;
   const dateOfSales = Date.parse(req.body.dateOfSales);
   const keyValue = req.body.keyValue;
+  const credited = req.body.credited;
   const newSale = new Sale({
     pumpname,
     fueltype,
@@ -28,6 +29,7 @@ router.route('/add').post((req, res) => {
     payablevalue,
     dateOfSales,
     keyValue,
+    credited,
   });
 
   newSale.save()
