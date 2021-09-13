@@ -42,7 +42,7 @@ const Topbar: React.FC = ({}) => {
               </Button>
             </NextLink>
 
-            <NextLink href="/addpumpers">
+            <NextLink href="/register/pumper">
               <Button
                 as="a"
                 variant="ghost"
@@ -55,7 +55,7 @@ const Topbar: React.FC = ({}) => {
               </Button>
             </NextLink>
 
-            <NextLink href="/addpump">
+            <NextLink href="/register/pump">
               <Button
                 as="a"
                 variant="ghost"
@@ -139,7 +139,7 @@ const Topbar: React.FC = ({}) => {
               </Button>
             </NextLink>
 
-            <NextLink href="addpumpers">
+            <NextLink href="/register/pumper">
               <Button
                 as="a"
                 variant="ghost"
@@ -151,7 +151,7 @@ const Topbar: React.FC = ({}) => {
               </Button>
             </NextLink>
 
-            <NextLink href="addpump">
+            <NextLink href="/register/pump">
               <Button
                 as="a"
                 variant="ghost"
