@@ -26,6 +26,7 @@ const pumpersRouter = require('./routes/pumpers');
 const pricesRouter = require('./routes/prices')
 const salesRouter = require('./routes/sales');
 const pumperrecordsRouter = require('./routes/pumpers_records');
+const userRouter = require('./routes/user')
 
 
 app.use('/pump', pumpRouter);
@@ -33,6 +34,7 @@ app.use('/pumpers', pumpersRouter);
 app.use('/prices', pricesRouter );
 app.use('/sales', salesRouter);
 app.use('/pumperrecords', pumperrecordsRouter);
+app.use('/user', userRouter)
 
 
 app.listen(port, () => {
