@@ -55,4 +55,15 @@ router.route('/update/:id').post((req, res) => {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
+router.route('/edit/:id').post((req, res) => {
+  Pumps.findById(req.params.id)
+    .then(pump => {  
+     pump.pumpname = req.body.pumpname;
+      pump.save()
+        .then(() => res.json('Pump updated!'))
+        .catch(err => res.status(400).json('Error: ' + err));
+    })
+    .catch(err => res.status(400).json('Error: ' + err));
+});
+
 module.exports = router;
