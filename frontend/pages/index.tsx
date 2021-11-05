@@ -14,15 +14,11 @@ export default function Home() {
 
         <Flex direction={{ base: "column", md: "row" }} w="100%" align="center">
             
-            <Flex w={{base:"100%", md:"50%"}} >
+            <Flex w={{base:"100%", md:"100%"}} align="center" >
             <Credit></Credit>
             </Flex>
 
-            <Flex w={{base:"100%", md:"50%"}} align="center" >
-              
-            </Flex>
         </Flex>
-
         <Flex direction={{ base: "column", md: "row" }} w="100%" align="center" mb={5}>
           
           <Flex w={{base:"100%", md:"50%"}} mr={5} >
