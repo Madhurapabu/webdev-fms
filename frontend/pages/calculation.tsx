@@ -1,27 +1,11 @@
 import React, { useState, useEffect } from "react";
 import {
-  Accordion,
-  AccordionButton,
-  AccordionIcon,
-  AccordionItem,
-  AccordionPanel,
-  AspectRatio,
-  Box,
-  Button,
-  Center,
-  Divider,
-  Flex,
-  FormControl,
-  FormLabel,
-  Input,
   SimpleGrid,
-  Stack,
   Tab,
   TabList,
   TabPanel,
   TabPanels,
   Tabs,
-  Text,
 } from "@chakra-ui/react";
 
 import Calcard from "../components/calculations/calculation_com";
