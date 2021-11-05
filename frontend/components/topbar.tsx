@@ -1,4 +1,4 @@
-import { Button, Flex, HStack, Icon, IconButton, Link } from "@chakra-ui/react";
+import { Button, Flex, Heading, HStack, Icon, IconButton, Link } from "@chakra-ui/react";
 import { HamburgerIcon, EmailIcon, CloseIcon } from "@chakra-ui/icons";
 import React, { useState } from "react";
 import NextLink from "next/link";
@@ -21,6 +21,21 @@ const Topbar: React.FC = ({}) => {
           bg="white"
         >
           {/* Desktop */}
+
+          <Heading ml={5} textColor="blackAlpha.700" size="md">
+            ABC Filling Station
+          </Heading>
+
+          <IconButton
+            aria-label="Open Menu"
+            size="lg"
+            mr={4}
+            icon={<HamburgerIcon />}
+            onClick={
+              () => changeDisplay("flex")              
+            }
+            display={["flex", "flex", "none", "none"]}
+          />
 
           <Flex display={["none", "none", "flex", "flex"]}>
             <NextLink href="/" >
@@ -79,25 +94,19 @@ const Topbar: React.FC = ({}) => {
                 Prices
               </Button>
             </NextLink>
+            
+            <NextLink href="/view">
+              <Button
+                as="a"
+                variant="ghost"
+                aria-label="View"
+                my={2}
+                w="100%"
+              >
+                View
+              </Button>
+            </NextLink>
           </Flex>
-
-          {/* Mobile */}
-          <IconButton
-            aria-label="Open Menu"
-            size="lg"
-            icon={<HamburgerIcon />}
-            onClick={
-              () => changeDisplay("flex")              
-            }
-            display={["flex", "flex", "none", "none"]}
-          />
-          <IconButton
-            variant="outline"
-            colorScheme="teal"
-            aria-label="Send email"
-            icon={<EmailIcon />}
-            mr={10}
-          />
         </Flex>
 
         {/* Mobile Content */}
@@ -172,6 +181,18 @@ const Topbar: React.FC = ({}) => {
                 w="100%"
               >
                 Prices
+              </Button>
+            </NextLink>
+
+            <NextLink href="/view">
+              <Button
+                as="a"
+                variant="ghost"
+                aria-label="View"
+                my={5}
+                w="100%"
+              >
+                View
               </Button>
             </NextLink>
           </Flex>
